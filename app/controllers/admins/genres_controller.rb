@@ -2,6 +2,7 @@ class Admins::GenresController < ApplicationController
 
   before_action :authenticate_admin
 
+
   def new
     @genre = Gerne.new
   end
@@ -36,3 +37,4 @@ class Admins::GenresController < ApplicationController
     params.require(:genre).permit(:name, :is_enabled)
   end
 end
+
