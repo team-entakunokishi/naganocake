@@ -1,4 +1,5 @@
 class Admins::CustomersController < ApplicationController
+  before_action :authenticate_admin!
   
   def index
     @customers = Customer.All
@@ -15,6 +16,10 @@ class Admins::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
+
+
+
+      #正しいルートパスがまだ存在しないーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
       redirect_to edit_customer_registration_path
     else
       render  :edit
