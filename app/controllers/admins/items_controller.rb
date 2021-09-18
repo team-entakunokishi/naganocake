@@ -1,4 +1,8 @@
 class Admins::ItemsController < ApplicationController
+
+   before_action :authenticate_admin
+
+
   def index
     @items = Item.all
   end
@@ -23,7 +27,7 @@ class Admins::ItemsController < ApplicationController
 
   def edit
    @item = Item.find(params[:id])
-   @genresv = Genre.all
+   @genres = Genre.all
   end
 
   def update
