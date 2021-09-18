@@ -1,0 +1,47 @@
+<h2>ジャンルの編集</h2>
+<%= form_for @gener, url: admins_genre_path(@genre.id) do |f|
+  <div class="filed row">
+  <lavel>ジャンル</lavel>
+  <%= f.text_field :name %>
+
+  <%= f.submit "変更を保存する" , "btn btn btn-primary">
+  </div>
+  <% end %>
+
+
+<h4> class-"bg-light">ジャンル一覧・追加</h4>
+
+<%= form_with model: @genre, url: admins_genre path, local:true do |f| %>
+ <%= f.label :name, "ジャンル名" %>
+ <%= f.text_field :name  %>
+ <%= submit '新規登録', class: "btn btn-success" %>
+<% end %>
+
+<table>
+  <tr>
+    <th>ジャンル</th>
+    <th></th>
+  </tr>
+  <% @genres.each do |genres| %>
+  <tr>
+    <td><%= genres.name %></td>
+    <td><link_to '編集する', edit_admins_genre_path(genres),class: "btn btn-success" %></td>
+  </tr>
+  <% end %>
+
+</table>
+
+<h1>管理者画面</h1>
+  </div>
+  <div class="row today-order">
+    <br>
+    <p>本日の注文件数: <%= @order.count %>件</p>
+    <br>
+    <br>
+    <%= link_to "注文履歴一覧", admin_orders_path,class:"btn btn-primary" %>
+
+  </div>
+  
+  
+  
+ 
