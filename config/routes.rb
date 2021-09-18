@@ -24,7 +24,11 @@ Rails.application.routes.draw do
   
   resources :items, only:[:index,:show]
   
-  resources :cart_items, only[:index,:update,:destroy,:empty,:create]
+  resources :cart_items, only:[:index,:update,:destroy,:empty,:create]
+  
+  resources :orders, only:[:new,:confirm,:create,:index,:show,:complete]
+  
+  resources :addresses, only:[:index,:create,:edit,:update,:destroy]
   
   devise_for :views
   devise_for :customers
