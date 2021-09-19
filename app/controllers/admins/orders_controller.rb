@@ -1,5 +1,6 @@
 class Admins::OrdersController < ApplicationController
   before_action :authenticate_admin!
+  
   def index
     @orders = Order.all
   end
@@ -12,8 +13,7 @@ class Admins::OrdersController < ApplicationController
     @order = Oder.find(params[:id])
     @order.update(order_params)
 
-  #正しいリダイレクト先は未記入ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-    redirect_to
+    redirect_to admins_order_path
   end
 
   private
