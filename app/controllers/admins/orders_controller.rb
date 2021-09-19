@@ -12,7 +12,7 @@ class Admins::OrdersController < ApplicationController
     @order = Oder.find(params[:id])
     @order.update(order_params)
 
-  #正しいリダイレクト先は未記入ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+  #正しいリダイレクト先は未記入ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
     redirect_to
   end
 
