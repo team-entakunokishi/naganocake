@@ -1,0 +1,54 @@
+<table>
+  <thead>
+    <tr>
+      <td>購入者</td>
+        <%= @order.front_name + @order.back_name %>
+    </tr>
+    <tr>
+      <td>購入日</td>
+        <%= order.created_at.strftime("%y年/%m月/%d日 %H:%M:%S") %>
+    </tr>
+    
+    <tr>
+      <td>配送先</td>
+        〒<%= @order.shipping_code %>
+          <%= @order.shipping_address %>
+          <%= @order.post_name %>
+    </tr>
+    <tr>
+      <td>注文ステータス</td>
+        <%= form_with model: @order, admins_order_path(:id), local:true, method: :patch do |f| %>
+          <%= f.select :order_status, ["入金待ち","入金確認","製作中","発送準備中","発送済み"] %>
+          <%= f.submit "更新" %>
+        <% end %>
+    </tr>
+  </thead>
+  
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>個数</th>
+      <th>小計</th>
+      <th>制作ステータス</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @order.oder_item
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+  
+  <tbody>
+    <tr>
+      <td>請求額合計</td>
+        <%=  %>
+    </tr>
+  </tbody>
+</table>
