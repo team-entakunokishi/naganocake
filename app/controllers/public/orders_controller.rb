@@ -3,15 +3,31 @@ class Public::OrdesController < ApplicationController
 
    def new
      @order = Order.new
-		 @addresses = current_customer.addresses
+		 @shipping_addresses = current_customer.addresses
    end
-   def confilm
-     @order = Order.new(order_params)
-     @order.customer_id = current_customer.id
-     
+    def confilm
+      @order = Order.new(order_params)
+      @order.customer_id = current_customer.id
+        #addresにaddresが入っていた場合
+     if params[:order_address] == "option1"
+         @order.shipping_code = current_customer.shipping_code
+         @order.address = current_customer.address
+         @order.name = current_customer.last_name + current_customer.first_name
+      　#addresにshipping_addresが入っていた場合
+	 elsif params[:order_address] == "option2"
+			   @address = Address.find(params[:order][:select_address])
+			   @order.shipping_address = @address.shipping_address
+			   @order.name = @address.name
+			   @order.shipping_code = @address.shipping_code
+	 elsif params[:order_address] == "option3"
+	end
 
 
-   end
+		@cart_items=current_customer.cart_items
+
+
+    end
+
    def create
      @order = Order.new(order_params)
      @order.save
