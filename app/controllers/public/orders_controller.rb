@@ -1,4 +1,4 @@
-class Public::OrdesController < ApplicationController
+class Public::OrdersController < ApplicationController
    before_action :authenticate_customer!
 
    def new
@@ -9,18 +9,18 @@ class Public::OrdesController < ApplicationController
       @order = Order.new(order_params)
       @order.customer_id = current_customer.id
         #addresにaddresが入っていた場合
-     if params[:order_address] == "option1"
+if params[:order_address] == "option1"
          @order.shipping_code = current_customer.shipping_code
          @order.address = current_customer.address
          @order.name = current_customer.last_name + current_customer.first_name
       　#addresにshipping_addresが入っていた場合
-	 elsif params[:order_address] == "option2"
+elsif params[:order_address] == "option2"
 			   @address = Address.find(params[:order][:select_address])
 			   @order.shipping_address = @address.shipping_address
 			   @order.name = @address.name
 			   @order.shipping_code = @address.shipping_code
-	 elsif params[:order_address] == "option3"
-	end
+elsif params[:order_address] == "option3"
+end
 
 
 		@cart_items=current_customer.cart_items
@@ -59,3 +59,4 @@ class Public::OrdesController < ApplicationController
 	    params.require(:order).permit(:customer_id, :method_of_payment, :total_amount, :shipping_code, :shipping_address, :post_name)
     end
 end
+
