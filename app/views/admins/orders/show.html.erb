@@ -8,7 +8,7 @@
       <td>購入日</td>
         <%= order.created_at.strftime("%y年/%m月/%d日 %H:%M:%S") %>
     </tr>
-    
+
     <tr>
       <td>配送先</td>
         〒<%= @order.shipping_code %>
@@ -17,13 +17,13 @@
     </tr>
     <tr>
       <td>注文ステータス</td>
-        <%= form_with model: @order, admins_order_path(:id), local:true, method: :patch do |f| %>
+        <%= form_with model: @order, admins_order_path(@order), local:true, method: :patch do |f| %>
           <%= f.select :order_status, ["入金待ち","入金確認","製作中","発送準備中","発送済み"] %>
           <%= f.submit "更新" %>
         <% end %>
     </tr>
   </thead>
-  
+
   <thead>
     <tr>
       <th>商品名</th>
@@ -33,22 +33,37 @@
       <th>制作ステータス</th>
     </tr>
   </thead>
-  
+
   <tbody>
-    <% @order.oder_item
+    <% @order.items_orders.each do |item_order| %>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= item_order.item.name %></td>
+      <td><%= item_order.item.tax_including_price %></td>
+      <td><%= item_order.item.quantity %></td>
+      <td><%= item_order.tax_including_price * item_order.quantity %></td>
+      <td>
+        <%= form_with model: item_order, admins_order_path(item_order), local:true, method: :patch do |f| %>
+          <%= f.select :product_status, ["着手不可","制作待ち","製作中","制作完了"] %>
+          <%= f.submit "更新" %>
+        <% end %>
+      </td>
     </tr>
+    <% end %>
   </tbody>
-  
+
   <tbody>
+    <tr>
+      <td>商品合計</td>
+      <td><%= @order.total_amount - @order.postage %></td>
+    </tr>
+    <tr>
+      <td>送料</td>
+      <td><%= @order.postage %></td>
+    </tr>
     <tr>
       <td>請求額合計</td>
-        <%=  %>
+      <td><%= @order.total_amount %></td>
     </tr>
   </tbody>
 </table>
+I 
