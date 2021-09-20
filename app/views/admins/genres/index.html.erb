@@ -1,9 +1,9 @@
-<h4> class-"bg-light">ジャンル一覧・追加</h4>
+<h2>ジャンル一覧・追加</h2>
 
 <%= form_with model: @genre, url: admins_genre path, local:true do |f| %>
  <%= f.label :name, "ジャンル名" %>
  <%= f.text_field :name  %>
- <%= submit '新規登録', class: "btn btn-success" %>
+ <%= submit '新規登録' %>
 <% end %>
 
 <table>
@@ -14,7 +14,7 @@
   <% @genres.each do |genres| %>
   <tr>
     <td><%= genres.name %></td>
-    <td><link_to '編集する', edit_admins_genre_path(genres),class: "btn btn-success" %></td>
+    <td><link_to '編集する', edit_admins_genre_path(genres),class %></td>
   </tr>
   <% end %>
 

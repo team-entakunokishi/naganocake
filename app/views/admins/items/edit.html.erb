@@ -1,4 +1,4 @@
-<h4>商品の編集</h4>
+<h2>商品の編集</h2>
 
  <%form_with model: @item, url: admins_item_path, local:true do |f| %>
  <table>
@@ -19,7 +19,7 @@
     <td><%= f.collection_select(:genre_id @genres, :id, :name) %> </td>
    </tr>
    <tr>
-    <th><%= f.label :price, "税込み価格" %> </th>
+    <th><%= f.label :price, "税抜き価格" %> </th>
     <td><%= f.text field:price %>円</td>
    </tr>
  </table>

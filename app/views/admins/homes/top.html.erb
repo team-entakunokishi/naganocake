@@ -1,4 +1,4 @@
-<h4 class=>注文履歴一覧</h4>
+<h4>注文履歴一覧</h4>
  <tr>
   <th>購入日時</th>
   <th>購入者</th>
@@ -8,11 +8,11 @@
   <% @orders.each do |order| %>
    <tr>
     <td>
-     <%= link_to admins_order_path(order.id) do %>
+     <%= link_to admins_orders_path(order.id) do %>
       <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
      <% end %>
     </td>
-    <td><%= order.customer.last_name %> <%= order.customer.first_name %></td>
+    <td><%= order.customer.front_name %> <%= order.customer.back_name %></td>
     <td>
      <% order.order_details.each do |order_detail| %>
       <%= order_detail.item.name %>
