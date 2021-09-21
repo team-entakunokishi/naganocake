@@ -1,0 +1,27 @@
+<div class="container">
+
+  <h2 class="mt-5 mb-5 text title-text">
+    Item List...（All <%= @items.total_count %> items）
+  </h2>
+  <div class="row">
+    <% @items.each do |item| %>
+      <div class="col-md-3 mx-auto">
+        <p class="img-wrap">
+          <%= link_to item_path(item.id) do %>
+            <%= attachment_image_tag item, :image, :fill, 200, 200, fallback: "no_image.jpg", size: "200x200", class:"border rounded" %>
+          <% end %>
+        </p>
+        <h5 class="text"><%= item.name %></h5>
+        <p class="text">
+          <% if item.is_active == true %>
+            ￥<%= item.price.to_s(:delimited) %>
+          <% elsif item.is_active == false %>
+            売り切れ中
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pagination float-right"><%= paginate @items, theme: 'twitter-bootstrap-4' %></div>
+</div>
