@@ -1,9 +1,7 @@
 <h2>ジャンルの編集</h2>
-<%= form_for @gener, url: admin_genre_path(@genre.id) do |f|
-  <div class="filed row">
+<%= form_for @genre, url: admins_genre_path(@genre.id) do |f|
   <lavel>ジャンル</lavel>
   <%= f.text_field :name %>
 
-  <%= f.submit "変更を保存する" , "btn btn btn-primary">
-  </div>
+  <%= f.submit "変更を保存する" >
   <% end %>
