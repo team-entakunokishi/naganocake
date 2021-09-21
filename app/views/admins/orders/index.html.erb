@@ -1,0 +1,21 @@
+<thead>
+  <th>購入者</th>
+  <th>購入日</th>
+  <th>注文ステータス</th>
+</thead>
+
+<tbody>
+  <%= @orders.each do |order| %>
+    <td>
+      <%= order.customer.front_name %>
+      <%= order.customer.back_name %>
+    </td>
+    <td>
+      <%= link_to admins_order_path(:id) do %>
+        <%= order.created_at.strftime("%y年/%m月/%d日 %H:%M:%S") %>
+      <% end %>
+    </td>
+    <td><%= order.is_order_status %></td>
+</tbody>
+  <% end %>
+<!---->

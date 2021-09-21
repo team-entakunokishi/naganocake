@@ -1,0 +1,20 @@
+<thead>
+  <th>会員ID</th>
+  <th>氏名</th>
+  <th>ステータス</th>
+</thead>
+
+<tbody>
+  <% @customers.each do |customer| %>
+    <td><%= customer.id %></td>
+    <td><%= customer.front_name + customer.back_name %></td>
+    <td>
+      <% if customer.is_customer_status %>
+        <span>退会</span>
+      <% else %>
+        <span>有効</span>
+      <% end %>
+  <% end %>
+    </td>
+</tbody>
+<%#>
