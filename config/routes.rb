@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     sessions: "public/sessions",
     passwords: "public/passwords"
   }
-  devise_for :admins
+  
+  devise_for :admins, only: [:sessions], :controllers => {
+    :sessions => 'admins/sessions'
+  }
 
 
   namespace :admins do #管理者側のルーティング
