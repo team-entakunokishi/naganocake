@@ -6,11 +6,11 @@ class Admins::OrdersController < ApplicationController
   end
 
   def show
-    @order = Oder.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   def update
-    @order = Oder.find(params[:id])
+    @order = Order.find(params[:id])
     @order.update(order_params)
 
     redirect_to admins_order_path
