@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  belongs_to :type
+  belongs_to :genre
 	has_many :cart_items, dependent: :destroy
 	has_many :item_orders, dependent: :destroy
 	validates :name, presence: true

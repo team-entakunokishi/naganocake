@@ -1,0 +1,21 @@
+<h2>商品詳細</h2>
+
+<table>
+  <tr>
+    <th>商品名</th>
+    <td><%= @item.name %></td>
+  </tr>
+  <tr>
+     <th>商品説明</th>
+     <td><%= @item.introduction %></td>
+  </tr>
+  <tr>
+     <th>ジャンル</th>
+     <td><%= @item.genre.name %></td>
+  </tr>
+  <tr>
+     <th>税込み価格</th>
+     <td><%= @item.sale prise %></td>
+  </tr>
+</table>
+<%= link_to'編集する',edit_admins_item_path(@item) %>
