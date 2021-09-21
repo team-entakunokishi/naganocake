@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :customer
-	has_many :order_items, dependent: :destroy
+	has_many :item_orders, dependent: :destroy
 	validates :customer_id, presence: true
 	validates :shipping_code, presence: true
 	validates :shipping_address, presence: true
@@ -13,8 +13,8 @@ class Order < ApplicationRecord
 
 	after_update do
       if self.order_status == "入金確認"
-        self.order_items.each {|order_item|
-        order_item.update(product_status: "製作待ち")
+        self.item_orders.each {|order_item|
+        item_order.update(product_status: "製作待ち")
         }
       end
     end
