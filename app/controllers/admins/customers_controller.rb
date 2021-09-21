@@ -1,7 +1,9 @@
 class Admins::CustomersController < ApplicationController
 
+  before_action :authenticate_admin!
+  
   def index
-    @customers = Customer.All
+    @customers = Customer.all
   end
 
   def show
