@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
 
+
   devise_for :customers,  controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions",
     passwords: "public/passwords"
   }
   devise_for :admins
+
 
   namespace :admins do #管理者側のルーティング
 
@@ -26,6 +28,7 @@ Rails.application.routes.draw do
 
   end
 
+
   #ここから先会員側のルーティング
 
   root to: 'homes#top'
@@ -33,6 +36,7 @@ Rails.application.routes.draw do
   get 'home/about', to: 'homes#about'
 
   namespace :public do
+
 
   resource :customers, only:[:show,:edit,:update,:confirm,:withdraw]
 
@@ -45,7 +49,9 @@ Rails.application.routes.draw do
 
   resources :addresses, only:[:index,:create,:edit,:update,:destroy]
 
+
  end
+
 
 
 end
