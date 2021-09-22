@@ -1,2 +1,26 @@
 <h2>会員情報編集</h2>
 
+<div class="customer_info_update" >
+
+    <%= form_with model: @customer, url: public_customers_path, local: true do |f| %>
+
+        <label for="frontname">氏名</label>
+        <%= f.text_field :front_name %>
+        <label for="backname"></label>
+        <%= f.text_field :back_name %>
+        <label for="firstname">フリガナ</label>
+        <%= f.text_field :first_name %>
+        <label for="lastname"></label>
+        <%= f.text_field :last_name %>
+        <label for="postcode">郵便番号</label>
+        <%= f.text_field :post_code %>
+        <label for="telnumber">電話番号</label>
+        <%= f.text_field :tel_number %>
+        <label for="address">メールアドレス</label>
+        <%= f.text_field :email %>
+
+        <%= f.submit "編集内容を保存" %>
+
+</div>
+
+    <% end %>
