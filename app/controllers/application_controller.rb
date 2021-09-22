@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up,keys:[:front_name,:back_name,:first_name,:last_name,:email,:post_code,:address,:tel_number,:encrypted_password])
+    devise_parameter_sanitizer.permit(:sign_up,keys[:front_name,:back_name,:first_name,:last_name,:email,:post_code,:address,:tel_number,:encrypted_password])
   end
 
    helper_method :current_cart
