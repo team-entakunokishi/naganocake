@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     sessions: "public/sessions",
     passwords: "public/passwords"
   }
-  
+
   devise_for :admins, only: [:sessions], :controllers => {
     :sessions => 'admins/sessions'
   }
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
     resources :customers, only:[:index,:show,:edit,:update]
 
-    resources :geners, only:[:index,:create,:edit,:update]
+    resources :genres, only:[:index,:create,:edit,:update]
 
 
     resources :orders, only:[:show,:update,:index]
