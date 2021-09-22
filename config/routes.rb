@@ -35,6 +35,8 @@ Rails.application.routes.draw do
 
   get 'home/about', to: 'homes#about'
 
+  get 'public/confirm', to: 'public/customers#confirm'
+
   namespace :public do
 
 
