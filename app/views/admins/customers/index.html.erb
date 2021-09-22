@@ -1,13 +1,13 @@
 <thead>
-  <th>会員ID</th>
-  <th>氏名</th>
-  <th>ステータス</th>
+  <h2>会員ID</h2>
+  <h2>氏名</h2>
+  <h2>ステータス</h2>
 </thead>
 
 <tbody>
   <% @customers.each do |customer| %>
     <td><%= customer.id %></td>
-    <td><%= customer.front_name + customer.back_name %></td>
+    <td><%= customer.front_name %> <%= customer.back_name %></td>
     <td>
       <% if customer.is_customer_status %>
         <span>退会</span>
@@ -17,4 +17,3 @@
   <% end %>
     </td>
 </tbody>
-<%#>

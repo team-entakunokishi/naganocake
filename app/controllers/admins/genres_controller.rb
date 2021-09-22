@@ -1,10 +1,10 @@
 class Admins::GenresController < ApplicationController
 
-  before_action :authenticate_admin
+  before_action :authenticate_admin!
 
 
   def new
-    @genre = Gerne.new
+    @genre = Genre.new
   end
 
  def index
