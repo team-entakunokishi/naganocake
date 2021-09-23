@@ -1,7 +1,7 @@
 <h2>新規登録商品</h2>
  <% if @item.errors.any? %>
   <%= @item.errors.count %>件のエラーが発生しました。
-  <% @item.errors.full_message.each do |message| %>
+  <% @item.errors.full_messages.each do |message| %>
    <%= message %>
   <% end %>
    <% end %>
