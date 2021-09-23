@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   belongs_to :genre
 	has_many :cart_items, dependent: :destroy
 	has_many :item_orders, dependent: :destroy
-	 #attachment :image
+	 attachment :image
 	validates :name, presence: true
   validates :body, presence: true
   validates :price, presence: true
