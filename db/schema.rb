@@ -78,7 +78,8 @@ ActiveRecord::Schema.define(version: 2021_09_17_084513) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "genres_id", null: false
+    t.integer "genre_id", null: false
+    t.integer "price"
     t.string "name", null: false
     t.string "example", null: false
     t.boolean "is_sell_status", default: false, null: false
