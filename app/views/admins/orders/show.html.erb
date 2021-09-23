@@ -2,7 +2,9 @@
   <thead>
     <tr>
       <td>購入者</td>
-        <%= @order.front_name + @order.back_name %>
+        <%= link_to admins_customer_path(@order) do %>
+        <%= @order.front_name %> <%= @order.back_name %>
+        <% end %>
     </tr>
     <tr>
       <td>購入日</td>
@@ -17,7 +19,7 @@
     </tr>
     <tr>
       <td>注文ステータス</td>
-        <%= form_with model: @order, admins_order_path(@order), local:true, method: :patch do |f| %>
+        <%= form_with model: @order, admins_order_path, local:true, method: :patch do |f| %>
           <%= f.select :order_status, ["入金待ち","入金確認","製作中","発送準備中","発送済み"] %>
           <%= f.submit "更新" %>
         <% end %>
@@ -42,7 +44,7 @@
       <td><%= item_order.item.quantity %></td>
       <td><%= item_order.tax_including_price * item_order.quantity %></td>
       <td>
-        <%= form_with model: item_order, admins_order_path(item_order), local:true, method: :patch do |f| %>
+        <%= form_with model: item_order, admins_order_path, local:true, method: :patch do |f| %>
           <%= f.select :product_status, ["着手不可","制作待ち","製作中","制作完了"] %>
           <%= f.submit "更新" %>
         <% end %>

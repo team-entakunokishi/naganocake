@@ -7,7 +7,11 @@
 <tbody>
   <% @customers.each do |customer| %>
     <td><%= customer.id %></td>
-    <td><%= customer.front_name %> <%= customer.back_name %></td>
+    <td>
+      <%= link_to admins_customer_path(customer) do %>
+      <%= customer.front_name %> <%= customer.back_name %>
+      <% end %>
+    </td>
     <td>
       <% if customer.is_customer_status %>
         <span>退会</span>
@@ -17,3 +21,4 @@
   <% end %>
     </td>
 </tbody>
+<!---->
