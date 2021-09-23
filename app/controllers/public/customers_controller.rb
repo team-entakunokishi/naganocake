@@ -20,7 +20,7 @@ class Public::CustomersController < ApplicationController
 
   def withdraw
     @customer = current_customer
-    @customer.update(is_customer_status: true) #is_customer_statusカラムにフラグを立てる
+    @customer.update(is_customer_status: false) #is_customer_statusカラムにフラグを立てる
     flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
   end
 
