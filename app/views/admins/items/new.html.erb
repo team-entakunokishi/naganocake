@@ -5,7 +5,9 @@
    <%= message %>
   <% end %>
    <% end %>
+
   <%= form_for(@item, url:admins_items_path) do |f| %>
+
   <table>
     <tr>
       <th><%= f.label :image, "商品画像" %></th>
