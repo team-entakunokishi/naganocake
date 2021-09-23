@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_09_17_084513) do
 
   create_table "addresses", force: :cascade do |t|
-    t.integer "customer_id", null: false
+    t.string "customers_id", null: false
     t.string "shipping_code", null: false
     t.string "shipping_address", null: false
     t.string "post_name", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_09_17_084513) do
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "customer_id", null: false
+    t.integer "customers_id", null: false
     t.integer "item_id", null: false
     t.integer "quantity", null: false
     t.datetime "created_at", null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_09_17_084513) do
     t.string "post_code", null: false
     t.string "address", null: false
     t.string "tel_number", null: false
-    t.boolean "is_customer_status", default: true, null: false
+    t.boolean "is_customer_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true

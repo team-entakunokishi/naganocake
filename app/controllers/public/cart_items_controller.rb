@@ -1,8 +1,8 @@
 class Public::CartItemsController < ApplicationController
   before_action :authenticate_customer!
-　before_action :setup_cart_item!, only: [:update, :create, :destroy, :empty]
+  before_action :setup_cart_item!, only: [:update, :create, :destroy, :empty]
   def index
-     @cart_items = current_cart
+    @cart_items=current_customer.cart_items
   end
   def update
     cart_item=CartItem.find(params[:id])
