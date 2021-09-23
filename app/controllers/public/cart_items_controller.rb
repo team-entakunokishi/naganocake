@@ -32,7 +32,7 @@ class Public::CartItemsController < ApplicationController
 			flash[:notice] = "商品をカートにいれました"
 		end
 
-		redirect_to cart_items_path
+		redirect_to public_cart_items_path
 
   end
 
