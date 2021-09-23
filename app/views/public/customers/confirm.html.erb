@@ -6,5 +6,9 @@
 </div>
 
 <div class="not_withdrow">
-  
+  <%= link_to '退会しない', public_customers_path %>
+</div>
+
+<div class="withdraw">
+  <%= link_to "退会する", public_withdraw_path, method: :put, "data-confirm" => "本当に退会しますか？" %>
 </div>

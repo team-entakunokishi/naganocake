@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     sessions: "public/sessions",
     passwords: "public/passwords"
   }
-  
+
   devise_for :admins, only: [:sessions], :controllers => {
     :sessions => 'admins/sessions'
   }
@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   get 'home/about', to: 'homes#about'
 
   get 'public/confirm', to: 'public/customers#confirm'
+
+  put 'public/withdraw', to: 'public/customers#withdraw'
 
   namespace :public do
 

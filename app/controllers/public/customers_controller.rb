@@ -19,11 +19,13 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
-
+    @customer = current_customer
+    @customer.update(is_customer_status: true) #is_customer_statusカラムにフラグを立てる
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
   end
-  
+
   private
-  
+
   def customer_params
     params.require(:customer).permit(:front_name, :back_name, :first_name, :last_name, :post_code, :tel_number, :email)
   end
