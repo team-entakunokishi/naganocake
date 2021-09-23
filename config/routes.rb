@@ -40,6 +40,8 @@ Rails.application.routes.draw do
 
   get 'public/confirm', to: 'public/customers#confirm'
 
+  put 'public/withdraw', to: 'public/customers#withdraw'
+
   namespace :public do
 
 

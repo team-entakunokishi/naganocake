@@ -19,11 +19,14 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
-
+    @customer = current_customer
+    @customer.update(is_customer_status: false) #is_customer_statusカラムにフラグを立てる
+    reset_session
+    redirect_to root_path
   end
-  
+
   private
-  
+
   def customer_params
     params.require(:customer).permit(:front_name, :back_name, :first_name, :last_name, :post_code, :tel_number, :email)
   end
