@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,7 +12,24 @@
 
   <body>
     <header>
-      
+      <% if admin_signed_in? %>
+        <%= link_to "商品一覧", admins_items_path %>
+        <%= link_to "会員一覧", admins_customers_path %>
+        <%= link_to "注文履歴", admins_orders_path %>
+        <%= link_to "ジャンル一覧", admins_genres_path %>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+      <% elsif customer_signed_in? %>
+        <%= link_to "マイページ", public_customers_path %>
+        <%= link_to "商品一覧", public_items_path %>
+        <%= link_to "カート", public_cart_items_path %>
+        <%= link_to "ログアウト", destroy_customer_session_path %>
+      <% else %>
+        <%= link_to "About", home_about_path %>
+        <%= link_to "商品一覧", public_items_path %>
+        <%= link_to "新規登録", new_customer_registration_path %>
+        <%= link_to "ログイン", new_customer_session_path %>
+      <% end %>
+
     </header>
     <%= yield %>
   </body>

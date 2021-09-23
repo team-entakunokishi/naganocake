@@ -1,6 +1,6 @@
 class Admins::ItemsController < ApplicationController
 
-   before_action :authenticate_admin
+   before_action :authenticate_admin!
 
 
   def index
@@ -9,7 +9,7 @@ class Admins::ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @genres = Genre
+    @genres = Genre.all
   end
 
   def create
@@ -17,7 +17,7 @@ class Admins::ItemsController < ApplicationController
     if @item.save
       redirect_to admin_item_path(@item.id)
     else
-      render action:new
+      render action: :new
     end
   end
 
