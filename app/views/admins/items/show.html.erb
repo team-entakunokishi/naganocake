@@ -7,7 +7,7 @@
   </tr>
   <tr>
      <th>商品説明</th>
-     <td><%= @item.introduction %></td>
+     <td><%= @item.example %></td>
   </tr>
   <tr>
      <th>ジャンル</th>
@@ -15,7 +15,7 @@
   </tr>
   <tr>
      <th>税込み価格</th>
-     <td><%= @item.sale prise %></td>
+     <td><%= @item.price %></td>
   </tr>
 </table>
 <%= link_to'編集する',edit_admins_item_path(@item) %>
