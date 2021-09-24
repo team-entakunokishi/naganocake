@@ -4,7 +4,8 @@ class Item < ApplicationRecord
 	has_many :item_orders, dependent: :destroy
 	 attachment :image
 	validates :name, presence: true
-  validates :body, presence: true
   validates :price, presence: true
-  validates :is_active, inclusion: {in: [true, false]}
+  validates :image, presence: true
+  validates :example, presence: true
+  validates :is_sell_status, inclusion: {in: [true, false]}
 end

@@ -31,4 +31,10 @@
     <th>ステータス</th>
     <td><%= @customer.is_customer_status %></td>
   </tr>
+  <tr>
+    <td>
+      <%= link_to "編集", edit_admins_customer_path(@customer.id) %>
+      <%= link_to "注文履歴", admins_orders_path %>
+    </td>
+  </tr>
 </table>

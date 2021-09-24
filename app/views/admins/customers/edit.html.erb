@@ -1,34 +1,34 @@
-<%= form_with model: @customer, url: admins_customer_path(:id), local:true do |f| %>
+<%= form_with model: @customer, url: admins_customer_path, local:true do |f| %>
   <%= f.label :id, "会員ID" %>
     <%= f.label :id, @customer.id %>
-    
+
   <%= f.label :front_name, "氏名" %>
     <%= f.text_field :front_name %>
     <%= f.text_field :back_name %>
-  
+
   <%= f.label :first_name, "フリガナ" %>
     <%= f.text_field :first_name %>
     <%= f.text_field :last_name %>
-    
+
   <%= f.label :email, "メールアドレス" %>
     <%= f.text_field :email  %>
-    
+
   <%= f.label :post_code, "郵便番号" %>
     <%= f.text_field :post_code %>
-    
+
   <%= f.label :address, "住所" %>
     <%= f.text_field :address %>
-    
+
   <%= f.label :tel_number, "電話番号" %>
     <%= f.text_field :tel_number %>
-    
+
   <%= f.label :is_customer_status, "会員ステータス" %>
     <%= f.radio_button :is_customer_status, false %>
     <%= f.label :is_customer_status, "有効", value: false %>
-    
+
     <%= f.radio_button :is_customer_status, true %>
     <%= f.label :is_customer_status, "退会", value: true %>
-    
+
   <%= f.submit "保存" %>
-    
+
 <% end %>
