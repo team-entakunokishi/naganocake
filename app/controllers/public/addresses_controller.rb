@@ -12,7 +12,7 @@ class Public::AddressesController < ApplicationController
     if
       @address.save
       flash[:notice] = "配送先の保存が出来ました"
-      redirect_to public_addresses_pathcd 
+      redirect_to public_addresses_path
     else
       @addresses = Address.all
       render 'index'
