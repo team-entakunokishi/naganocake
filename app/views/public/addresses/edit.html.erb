@@ -1,1 +1,14 @@
-<h2>配送先登録/一覧</h2>
+<h2>配送先編集</h2>
+
+<div class="address_update">
+    <%= form_with model: @address, url: public_addresses_path, local: true do |f| %>
+    <label for="shippingcode">郵便番号</label>
+    <%= f.text_field :shipping_code %><br>
+    <label for="shippingaddress">住所</label>
+    <%= f.text_field :shipping_address %><br>
+    <label for="postaname" >宛名</label>
+    <%= f.text_field :post_name %><br>
+
+    <%= f.submit "変更内容を保存" %>
+</div>
+    <% end %>

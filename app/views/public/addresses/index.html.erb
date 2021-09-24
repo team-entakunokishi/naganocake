@@ -1,0 +1,53 @@
+<h2>配送先登録/一覧</h2>
+
+<% if @address.errors.any? %>
+  <div class="error">
+    <%= @address.errors.count %>errors prohibited this address from being saved:
+    <ul>
+      <% @address.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="address_form">
+  <%= form_with model: @address,url: public_addresses_path, local:true do |f| %>
+  <div class="field">
+    <label for= "shipping_code">郵便番号</label>
+    <%= f.text_field :shipping_code, placeholder: "0000000" %><br>
+  </div>
+  <div class="field">
+    <label for= "shipping_address">住所</label>
+    <%= f.text_field :shipping_address, placeholder: "東京都渋谷区代々木神園町0-0" %><br>
+  </div>
+  <div class="field">
+    <label for= "post_name">宛名</label>
+    <%= f.text_field :post_name, placeholder: "令和道子" %><br>
+  </div>
+  <div class="actions">
+    <%= f.submit '新規登録' %>
+  </div>
+  <% end %>
+</div>
+
+<table class="addresses">
+  <thead>
+    <tr>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>宛名</th>
+      <th></th>
+      <th colspan = "3" ></th>
+    </tr>
+  </thead>
+  <% @addresses.each do |a| %>
+  <tbody>
+    <td><%= a.shipping_code %></td>
+    <td><%= a.shipping_address %></td>
+    <td><%= a.post_name %></td>
+    <td><%= link_to "編集する" , edit_public_address_path(a) %></td>
+    <td><%= link_to "削除する", "public/addresses/#{a.id}", method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+  </tbody>
+  <% end %>
+</table>

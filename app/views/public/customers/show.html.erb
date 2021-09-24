@@ -31,3 +31,11 @@
         <td><%= @customer.email %></td>
     </tr>
 </table>
+
+<div class="see_address">
+    <h4>配送先</h4><%= link_to '一覧を見る', public_addresses_path %>
+</div>
+
+<div class="see_order_history">
+    <h4>注文履歴</h4><%= link_to '一覧を見る', public_orders_path %>
+</div>
