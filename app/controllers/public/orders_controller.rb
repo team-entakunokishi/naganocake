@@ -32,12 +32,12 @@ end
      @order = Order.new(order_params)
      @order.save
      current_customer.cart_items.each do |cart_item|
-       @order_item = OrderItem.new
-       @order_item.order_id = @order.id
-       @order_item.item_id = cart_item.item_id
-       @order_item.tax_price = cart_item.tax_price
-       @order_item.quantity = cart_item.quantity
-       @order_item.save!
+       @item_order = ItemOrder.new
+       @item_order.order_id = @order.id
+       @item_order.item_id = cart_item.item_id
+       @item_order.tax_including_price = cart_item.tax_including_price
+       @item_order.quantity = cart_item.quantity
+       @item_order.save!
      end
      current_customer.cart_items.destroy_all
      redirect_to orders_complete_path
@@ -45,10 +45,12 @@ end
 
    def index
      @orders = current_customer.orders
+     @orders = Kaminari.paginate_array(@orders).page(params[:page]).per(8)
+     @orders = current_customer.orders.page(params[:page]).reverse_order
    end
    def show
      @order = Order.find(params[:id])
-     @order_items = @order.order_items
+     @item_orders = @order.item_orders
    end
    def complete
    end
