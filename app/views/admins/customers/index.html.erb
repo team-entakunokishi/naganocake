@@ -1,24 +1,28 @@
-<thead>
-  <th>会員ID</th>
-  <th>氏名</th>
-  <th>ステータス</th>
-</thead>
-
-<tbody>
-  <% @customers.each do |customer| %>
-    <td><%= customer.id %></td>
-    <td>
-      <%= link_to admins_customer_path(customer) do %>
-      <%= customer.front_name %> <%= customer.back_name %>
-      <% end %>
-    </td>
-    <td>
-      <% if customer.is_customer_status %>
-        <span>退会</span>
-      <% else %>
-        <span>有効</span>
-      <% end %>
-  <% end %>
-    </td>
-</tbody>
-<!---->
+ <table class="table table-hover">
+  <thead>
+    <tr class="table-active text">
+      <th>会員ID</th>
+      <th>氏名</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr class="light-text">
+        <td><%= customer.id %></td>
+        <td>
+          <%= link_to admins_customer_path(customer) do %>
+          <%= customer.front_name %> <%= customer.back_name %>
+          <% end %>
+        </td>
+        <td>
+          <% if customer.is_customer_status %>
+            <span>退会</span>
+          <% else %>
+            <span>有効</span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

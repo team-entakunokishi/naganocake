@@ -29,7 +29,11 @@
   </tr>
   <tr>
     <th>ステータス</th>
-    <td><%= @customer.is_customer_status %></td>
+    <td><% if @customer.is_customer_status %>
+        <span>退会</span>
+      <% else %>
+        <span>有効</span>
+      <% end %></td>
   </tr>
   <tr>
     <td>

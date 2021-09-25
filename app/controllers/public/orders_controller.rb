@@ -46,6 +46,7 @@ end
    def index
      @orders = current_customer.orders
      @orders = Kaminari.paginate_array(@orders).page(params[:page]).per(8)
+     @orders = current_customer.orders.page(params[:page]).reverse_order
    end
    def show
      @order = Order.find(params[:id])
