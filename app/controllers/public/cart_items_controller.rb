@@ -10,8 +10,8 @@ class Public::CartItemsController < ApplicationController
 			cart_item.update(quantity: cart_item.quantity + params[:quantity].to_i)
 			flash[:notice] = "数量変更しました"
 		else
-			cart_item=CartItem.new(cart_item_params)
-			cart_item.save
+			new_cart_item=CartItem.new(cart_item_params)
+			new_cart_item.save
 			flash[:notice] = "商品をカートにいれました"
 		end
 

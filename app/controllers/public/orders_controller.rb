@@ -8,12 +8,14 @@ class Public::OrdersController < ApplicationController
     def confilm
       @order = Order.new(order_params)
       @order.customer_id = current_customer.id
+      @order.postage = 800
+
         #addresにaddresが入っていた場合
 if params[:order_address] == "option1"
-         @order.shipping_code = current_customer.shipping_code
-         @order.address = current_customer.address
-         @order.name = current_customer.last_name + current_customer.first_name
-      　#addresにshipping_addresが入っていた場合
+         @order.shipping_code = current_customer.post_code
+         @order.shipping_address = current_customer.address
+         @order.post_name = current_customer.last_name + current_customer.first_name
+      #addresにshipping_addresが入っていた場合
 elsif params[:order_address] == "option2"
 			   @address = Address.find(params[:order][:select_address])
 			   @order.shipping_address = @address.shipping_address
@@ -30,6 +32,7 @@ end
 
    def create
      @order = Order.new(order_params)
+     @order.postage = 800
      @order.save
      current_customer.cart_items.each do |cart_item|
        @item_order = ItemOrder.new
@@ -40,7 +43,7 @@ end
        @item_order.save!
      end
      current_customer.cart_items.destroy_all
-     redirect_to orders_complete_path
+     redirect_to public_orders_complete_path
    end
 
    def index
