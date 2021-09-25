@@ -44,7 +44,7 @@ end
    end
 
    def index
-     @orders = current_customer.orders
+     @orders = current_customer.orders.page(params[:page]).reverse_order
    end
    def show
      @order = Order.find(params[:id])

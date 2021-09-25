@@ -15,15 +15,15 @@
   <%= form_with model: @address,url: public_addresses_path, local:true do |f| %>
   <div class="field">
     <label for= "shipping_code">郵便番号</label>
-    <%= f.text_field :shipping_code, placeholder: "0000000" %><br>
+    <%= f.text_field :shipping_code, placeholder: "0000000", class:"form-control" %><br>
   </div>
   <div class="field">
     <label for= "shipping_address">住所</label>
-    <%= f.text_field :shipping_address, placeholder: "東京都渋谷区代々木神園町0-0" %><br>
+    <%= f.text_field :shipping_address, placeholder: "東京都渋谷区代々木神園町0-0", class:"form-control" %><br>
   </div>
   <div class="field">
     <label for= "post_name">宛名</label>
-    <%= f.text_field :post_name, placeholder: "令和道子" %><br>
+    <%= f.text_field :post_name, placeholder: "令和道子", class:"form-control" %><br>
   </div>
   <div class="actions">
     <%= f.submit '新規登録' %>
@@ -47,7 +47,7 @@
     <td><%= a.shipping_address %></td>
     <td><%= a.post_name %></td>
     <td><%= link_to "編集する" , edit_public_address_path(a) %></td>
-    <td><%= link_to "削除する", "public/addresses/#{a.id}", method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+    <td><%= link_to "削除する", "/public/addresses/#{a.id}", method: :delete, "data-confirm" => "本当に消しますか?" %></td>
   </tbody>
   <% end %>
 </table>
