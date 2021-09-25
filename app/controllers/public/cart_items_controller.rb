@@ -4,6 +4,20 @@ class Public::CartItemsController < ApplicationController
   def index
     @cart_items=current_customer.cart_items
   end
+    def create
+    cart_item = current_customer.cart_items.find_by(item_id: params[:item_id])
+		if cart_item.present?
+			cart_item.update(quantity: cart_item.quantity + params[:quantity].to_i)
+			flash[:notice] = "数量変更しました"
+		else
+			cart_item=CartItem.new(cart_item_params)
+			cart_item.save
+			flash[:notice] = "商品をカートにいれました"
+		end
+
+    redirect_to public_cart_items_path
+
+    end
   def update
     cart_item=CartItem.find(params[:id])
 		cart_item.update(cart_item_params)
@@ -13,28 +27,14 @@ class Public::CartItemsController < ApplicationController
   def destroy
     cart_item=CartItem.find(params[:id])
 		cart_item.destroy
-		flash[:notice] = "１個削除しました"
+		flash[:notice] = "1個削除しました"
 		redirect_back(fallback_location: root_path)
   end
   def empty
     CartItem.destroy_all
-		redirect_to items_path
+    redirect_to public_items_path
   end
-  def create
-    cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
 
-		if cart_item.present?
-			cart_item.update(quantity: cart_item.quantity + params[:cart_item][:quantity].to_i)
-			flash[:notice] = "数量変更しました"
-		else
-			cart_item=CartItem.new(cart_item_params)
-			cart_item.save
-			flash[:notice] = "商品をカートにいれました"
-		end
-
-		redirect_to public_cart_items_path
-
-  end
 
   private
    def setup_cart_item!
