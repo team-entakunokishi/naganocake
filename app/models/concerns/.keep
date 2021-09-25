@@ -1,5 +1,1 @@
- <%= f.radio_button :is_sell_status, true %>
-     <%= f.label :is_sell_status, "販売中",value: true %>
-     <%= f.radio_button :is_sell_status, false %>
-     <%= f.label :is_sell_status, "販売中止",value: :false %>
-     
+
