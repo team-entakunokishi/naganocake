@@ -27,10 +27,17 @@
     </tr>
     <tr>
       <th><%= f.label :price, "税抜価格" %></th>
-      <td><%=f.text_field :price %>円</td> "新規登録" %></td>
+      <td><%=f.text_field :price %>円</td>
     </tr>
     <tr>
-      <th></th>
+      <th><%= f.label :is_sell_status, "販売ステータス" %></th>
+      <td>
+        <%= f.radio_button :is_sell_status, true %>
+        <%= f.label :is_sell_status, "販売中", value: :true %>
+        <%= f.radio_button :is_sell_status, false %>
+        <%= f.label :is_sell_status, "販売停止中", value: :false %>
+      </td>
+    </tr>
       <td><%=f.submit "新規登録" %></td>
     </tr>
   </table>
