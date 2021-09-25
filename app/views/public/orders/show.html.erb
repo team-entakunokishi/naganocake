@@ -26,9 +26,9 @@
             <tr>
               <td class="table-active text">配送先</td>
               <td class="light-text">
-                〒<%= @order.zip_code %><br>
-                <%= @order.address %><br>
-                <%= @order.name %> 様
+                〒<%= @order.shipping_code %><br>
+                <%= @order.shipping_address %><br>
+                <%= @order.post_name %> 様
               </td>
             </tr>
             <tr>
@@ -57,7 +57,7 @@
               <td class="table-active text">商品合計</td>
               <td class="light-text">
                 <!-- 商品合計 請求額 - 送料 -->
-                <%= @order.total_money - @order.fare %>
+                <%= @order.total_money - @order.post %>
               </td>
             </tr>
             <tr>
@@ -94,14 +94,14 @@
         </thead>
 
         <tbody>
-          <% @order_items.each do |order_item| %>
+          <% @order_items.each do |item_order| %>
           <tr class="light-text">
-            <td><%= order_item.item.name %></td>
-            <td><%= order_item.tax_price %></td>
-            <td><%= order_item.quantity %></td>
+            <td><%= item_order.item.name %></td>
+            <td><%= item_order.tax_including_price %></td>
+            <td><%= item_order.quantity %></td>
             <td>
               <!-- 小計の計算 税込み単価×注文個数 -->
-              <%= order_item.tax_price * order_item.quantity %>
+              <%= otem_order.tax_including_price * item_order.quantity %>
             </td>
           </tr>
           <% end %>

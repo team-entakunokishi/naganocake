@@ -9,15 +9,15 @@
 
   <div class="row">
 	<div class="mt-5 col-md-6 mx-auto">
-    <%= form_with model: @order, url: orders_thanks_path, method: :POST, local: true do |f| %>
+    <%= form_with model: @order, url: public_orders_confilm_path, method: :POST, local: true do |f| %>
 	    <%= f.hidden_field :customer_id, :value => current_customer.id %>
 
 			<h4 class="text"><支払い方法></h4>
       <div class="light-text">
-				<%= f.radio_button :pay_method, :クレジットカード, checked: true %>
-				<%= f.label :pay_method, "クレジットカード" %>
-				<%= f.radio_button :pay_method, :銀行振込 %>
-				<%= f.label :pay_method, "銀行振込" %>
+				<%= f.radio_button :method_of_payment, :クレジットカード, checked: true %>
+				<%= f.label :method_of_payment, "クレジットカード" %>
+				<%= f.radio_button :method_of_payment, :銀行振込 %>
+				<%= f.label :method_of_payment, "銀行振込" %>
       </div>
 
 			<h4 class="text"><お届け先></h4>
@@ -48,12 +48,12 @@
 					新しいお届け先
 				</label></br>
 				<div class="text">
-					<%= f.label :zip_code, "郵便番号（ハイフンなし）" %>
-					<%= f.text_field :zip_code, placeholder: "0000000" %></br>
-					<%= f.label :address, "住所　　　　　　　　　　" %>
-					<%= f.text_field :address, placeholder: "東京都渋谷区" %></br>
-					<%= f.label :name, "宛名　　　　　　　　　　" %>
-					<%= f.text_field :name, placeholder: "令和道子" %></br>
+					<%= f.label :shipping_code, "郵便番号（ハイフンなし）" %>
+					<%= f.text_field :shipping_code, placeholder: "0000000" %></br>
+					<%= f.label :shipping_address, "住所　　　　　　　　　　" %>
+					<%= f.text_field :shipping_address, placeholder: "東京都渋谷区" %></br>
+					<%= f.label :post_name, "宛名　　　　　　　　　　" %>
+					<%= f.text_field :post_name, placeholder: "令和道子" %></br>
 				</div>
 			</div>
 

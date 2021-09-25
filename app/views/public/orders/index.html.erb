@@ -27,16 +27,16 @@
         <tr class="light-text">
           <td><%= order.created_at.strftime('%Y年/%m月/%d日') %></td>
           <td>
-              〒<%= order.zip_code %><br>
-              <%= order.address %><br>
-              <%= order.name %> 様
+              〒<%= order.shipping_code %><br>
+              <%= order.shipping_address %><br>
+              <%= order.post_name %> 様
           </td>
           <td>
-            <% order.order_items.each do |f| %>
+            <% order.item.each do |f| %>
               <%= f.item.name %><br>
             <% end %>
           </td>
-          <td><%= order.total_money %></td>
+          <td><%= order.total_amount %></td>
           <td><%= order.order_status %></td>
           <td>
             <%= link_to "Show", order_path(order), class: "btn btn-success col-10" %>

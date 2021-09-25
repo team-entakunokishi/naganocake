@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     resources :items, only:[:index,:new,:create,:show,:edit,:update]
 
     resources :order_items, only:[:update]
+     get "orders/current_user_order/:id" => "orders#current_user_order"
 
   end
 
@@ -52,11 +53,12 @@ Rails.application.routes.draw do
   resources :cart_items, only:[:index,:update,:destroy,:empty,:create]
 
 
-  resources :orders, only:[:new,:confirm,:create,:index,:show,:complete]
+  resources :orders, only:[:new,:create,:index,:show,]
 
   resources :addresses, only:[:index,:create,:edit,:update,:destroy]
-
-
+ post "orders/confilm" => "orders#confilm"
+ get "orders/complete" => "orders#complete"
+ delete "cart_items" => "cart_items#empty"
  end
 
 
