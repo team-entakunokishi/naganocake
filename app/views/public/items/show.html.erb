@@ -9,7 +9,7 @@
       <p class="mt-5 text"><%= @item.example %></p>
       <p class="mb-5 text">¥ <%= (@item.price.to_i * 1.1).floor.to_s(:delimited) %>（税込）</p>
      <div class="text">
-      <% if @item.is_sell_status == true %>
+      <% if @item.is_sell_status == false %>
         <h3 class="mb-5 text">Sold out</h3>
       <% elsif customer_signed_in? %>
         <%= form_with model: @cart_item, url: public_cart_items_path, method: :POST, local: true do |f| %>
