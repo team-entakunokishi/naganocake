@@ -5,7 +5,7 @@
         <%= link_to admins_customer_path(@order) do %>
         <%= @order.post_name %> <%= @order.post_name %>
         <% end %>
-    
+
       <td>購入日</td>
         <%= @order.created_at.strftime("%y年/%m月/%d日 %H:%M:%S") %>
 
@@ -15,11 +15,12 @@
           <%= @order.post_name %>
     </tr>
     <tr>
-      <td>注文ステータス</td>
+      <td>注文ステータス
         <%= form_with model: @order, url: admins_order_path(@order), local:true, method: :patch do |f| %>
           <%= f.select :order_status, [["入金待ち", "入金待ち"], ["入金確認","入金確認"],["製作中","製作中"],["発送準備中","発送準備中"],["発送済み","発送済み"]] %>
           <%= f.submit "更新" %>
         <% end %>
+      </td>
     </tr>
   </thead>
 
@@ -41,7 +42,7 @@
       <td><%= item_order.quantity %></td>
       <td><%= item_order.tax_including_price * item_order.quantity %></td>
       <td>
-        <%= form_with model: item_order, url: admins_order_path(item_order), local:true, method: :patch do |f| %>
+        <%= form_with model: item_order, url: admins_items_order_path(item_order), local:true, method: :patch do |f| %>
           <%= f.select :product_status, [["着手不可", "着手不可"], ["製作待ち","製作待ち"],["製作中","製作中"],["製作完了","製作完了"]] %>
           <%= f.submit "更新" %>
         <% end %>

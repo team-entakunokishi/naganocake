@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
     resources :items, only:[:index,:new,:create,:show,:edit,:update]
 
-    resources :order_items, only:[:update]
+    resources :items_orders, only:[:update]
 
      get "orders/current_user_order/:id" => "orders#current_user_order"
   end

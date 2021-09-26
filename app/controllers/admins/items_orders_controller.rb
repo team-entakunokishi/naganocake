@@ -5,15 +5,22 @@ class Admins::ItemsOrdersController < ApplicationController
   end
   
   def update
-    @item_order = ItemsOrder.find(params[:id])
+    @item_order = ItemOrder.find(params[:id])
+    @item_orders = @item_order.order.item_orders
+    @order = @item_order.order
     @item_order.update(item_order_params)
-    redirect_back(fallback_location: root_path)
+    if @item_order.product_status == "製作中"
+       @item_order.order.update(order_status: "製作中")
+    elsif @item_orders.count == @item_orders.where(product_status: "製作完了").count
+          @item_order.order.update(order_status: "発送準備中")
+    end
+    redirect_to admins_order_path(@order)
   end
   
   private
   
   def item_order_params
-    params.require(:item_order).permit(product_status)
+    params.require(:item_order).permit(:product_status)
   end
   
 end
