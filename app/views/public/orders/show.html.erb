@@ -33,7 +33,7 @@
             </tr>
             <tr>
               <td class="table-active text">支払い方法</td>
-              <td class="light-text"><%= @order.pay_method %></td>
+              <td class="light-text"><%= @order.method_of_payment %></td>
             </tr>
             <tr>
               <td class="table-active text">ステータス</td>
@@ -57,16 +57,16 @@
               <td class="table-active text">商品合計</td>
               <td class="light-text">
                 <!-- 商品合計 請求額 - 送料 -->
-                <%= @order.total_money - @order.post %>
+                <%= @order.total_amount - @order.postage %>
               </td>
             </tr>
             <tr>
               <td class="table-active text">配送料</td>
-              <td class="light-text"><%= @order.fare %></td>
+              <td class="light-text"><%= @order.postage %></td>
             </tr>
             <tr>
               <td class="table-active text">ご請求額</td>
-              <td class="light-text"><%= @order.total_money %></td>
+              <td class="light-text"><%= @order.total_amount %></td>
             </tr>
           </tbody>
         </table>
@@ -94,14 +94,14 @@
         </thead>
 
         <tbody>
-          <% @order_items.each do |item_order| %>
+          <% @item_orders.each do |item_order| %>
           <tr class="light-text">
             <td><%= item_order.item.name %></td>
             <td><%= item_order.tax_including_price %></td>
             <td><%= item_order.quantity %></td>
             <td>
               <!-- 小計の計算 税込み単価×注文個数 -->
-              <%= otem_order.tax_including_price * item_order.quantity %>
+              <%= item_order.tax_including_price * item_order.quantity %>
             </td>
           </tr>
           <% end %>

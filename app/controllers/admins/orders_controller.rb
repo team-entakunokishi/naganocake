@@ -6,20 +6,23 @@ class Admins::OrdersController < ApplicationController
   end
 
   def show
-    @order = Oder.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   def update
-    @order = Oder.find(params[:id])
+    @order = Order.find(params[:id])
     @order.update(order_params)
-
-    redirect_to admins_order_path
+    if @order.order_status == "入金確認"
+      @order.item_orders.each do |item_order|
+        item_order.update(product_status: "製作待ち")
+      end
+    end
+    redirect_to admins_order_path(@order)
   end
 
   private
 
   def order_params
-    params.require(:order).permit(order_status)
+    params.require(:order).permit(:order_status)
   end
-
 end

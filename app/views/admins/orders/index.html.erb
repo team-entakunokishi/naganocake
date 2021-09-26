@@ -14,16 +14,12 @@
           <%= order.customer.front_name %>
           <%= order.customer.back_name %>
         </td>
-      </tr>
-      <tr>
         <td>
-          <%= link_to admins_order_path(:id) do %>
+          <%= link_to admins_order_path(order) do %>
             <%= order.created_at.strftime("%y年/%m月/%d日 %H:%M:%S") %>
           <% end %>
         </td>
-      </tr>
-      <tr>
-        <td><%= order.is_order_status %></td>
+        <td><%= order.order_status %></td>
       </tr>
     <% end %>
   </tbody>

@@ -4,6 +4,7 @@ class CreateCartItems < ActiveRecord::Migration[5.2]
       t.integer :customer_id, null: false
       t.integer :item_id, null: false
       t.integer :quantity, null: false
+      t.integer :tax_including_price, null: false
       t.timestamps null: false
     end
   end

@@ -13,9 +13,9 @@
         </p>
         <h5 class="text"><%= item.name %></h5>
         <p class="text">
-          <% if item.is_sell_status == false %>
+          <% if item.is_sell_status == true %>
             ￥<%= item.price.to_s(:delimited) %>
-          <% elsif item.is_sell_status == true %>
+          <% elsif item.is_sell_status == false %>
             売り切れ中
           <% end %>
         </p>
