@@ -13,3 +13,5 @@ Ruby, Ruby on Rails
 * 友人や家族へのプレゼントなど、注文者の住所以外にも商品を発送できる。
 * 支払方法はクレジットカード、銀行振込から選択できる。
 
+## 設計書
+<img width="1440" alt="スクリーンショット 2021-09-27 10 33 59" src="https://user-images.githubusercontent.com/87141681/134832977-a4c7688c-c346-4010-ae03-7ec0b742adbf.png">
