@@ -15,3 +15,11 @@ Ruby, Ruby on Rails
 
 ## 設計書
 <img width="1440" alt="スクリーンショット 2021-09-27 10 33 59" src="https://user-images.githubusercontent.com/87141681/134832977-a4c7688c-c346-4010-ae03-7ec0b742adbf.png">
+
+<img width="1440" alt="スクリーンショット 2021-09-27 10 41 52" src="https://user-images.githubusercontent.com/87141681/134833543-29485955-7629-445f-ac52-b884ec70b749.png">
+
+## チーム円卓の騎士
+*　くり
+*　ヒロ
+*　すず
+*　リヨ
