@@ -1,0 +1,46 @@
+<%= form_with model: @customer, url: admins_customer_path, local:true do |f| %>
+<table>
+  <tr>
+    <th><%= f.label :id, "会員ID" %></th>
+    <td><%= f.label :id, @customer.id %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :front_name, "氏名" %></th>
+    <td><%= f.text_field :front_name %></td>
+    <td><%= f.text_field :back_name %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :first_name, "フリガナ" %></th>
+    <td><%= f.text_field :first_name %></td>
+    <td><%= f.text_field :last_name %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :email, "メールアドレス" %></th>
+    <td><%= f.text_field :email  %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :post_code, "郵便番号" %></th>
+    <td><%= f.text_field :post_code %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :address, "住所" %></th>
+    <td><%= f.text_field :address %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :tel_number, "電話番号" %></th>
+    <td><%= f.text_field :tel_number %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :is_customer_status, "会員ステータス" %></th>
+    <td>
+      <%= f.radio_button :is_customer_status, false %>
+      <%= f.label :is_customer_status, "有効", value: false %>
+      <%= f.radio_button :is_customer_status, true %>
+      <%= f.label :is_customer_status, "退会", value: true %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= f.submit "保存" %></th>
+  </tr>
+<% end %>
+</table>
