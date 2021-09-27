@@ -19,7 +19,7 @@ Ruby, Ruby on Rails
 <img width="1440" alt="スクリーンショット 2021-09-27 10 41 52" src="https://user-images.githubusercontent.com/87141681/134833543-29485955-7629-445f-ac52-b884ec70b749.png">
 
 ## チーム円卓の騎士
-*　くり
-*　ヒロ
-*　すず
-*　リヨ
+* くり
+* ヒロ
+* すず
+* リヨ
